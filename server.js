@@ -1,5 +1,7 @@
 /* 
 npm start
+https://cse-341-project2-haye.onrender.com
+https://cse-341-project2-haye.onrender.com/products
 */
 
 const express = require("express");
@@ -11,8 +13,6 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use("/", require("./routes"));
-
-
 
 mongodb.initDb((err) => {
   if (err) {

@@ -75,7 +75,7 @@ const updateProduct = async (req, res) => {
         response.error || "Some error occurred while updating the product.",
       );
   }
-};
+}; 
 
 const deleteProduct = async (req, res) => {
   //#swagger.tags=['products']

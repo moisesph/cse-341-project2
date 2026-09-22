@@ -1,12 +1,27 @@
 ### Main Page
 GET http://localhost:3000/
 
-### products
+### Products
 GET http://localhost:3000/products
 
-### Contact by ID
+### Product by ID
 GET http://localhost:3000/products/6ab2ae362fc1f67f0dcac513
 
+### Update Product
+PUT https://project1-pcur.onrender.com/products/6ab2ae362fc1f67f0dcac519
+Content-Type: application/json
+
+{
+  "name": "Max Potion",
+  "category": "Medicine",
+  "price": 2500,
+  "stock": 5,
+  "description": "TESTING A spray-type medicine for treating wounds. Fully restores the max HP of a single Pokémon.",
+  "inStock": true
+}
+
+### Delete Product
+DELETE https://project1-pcur.onrender.com/products/6ab2ae362fc1f67f0dcac519
 
 
 ### Render Main
@@ -15,5 +30,6 @@ GET https://project1-pcur.onrender.com/
 ### Render products
 GET https://project1-pcur.onrender.com/products
 
-### Render Contact by ID
-GET https://project1-pcur.onrender.com/products/6483ce3e3f46080356e0c6d9
+### Render Product by ID
+GET https://project1-pcur.onrender.com/products/6ab2ae362fc1f67f0dcac519
+
