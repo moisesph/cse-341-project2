@@ -1,0 +1,19 @@
+### Main Page
+GET http://localhost:3000/
+
+### products
+GET http://localhost:3000/products
+
+### Contact by ID
+GET http://localhost:3000/products/6ab2ae362fc1f67f0dcac513
+
+
+
+### Render Main
+GET https://project1-pcur.onrender.com/
+
+### Render products
+GET https://project1-pcur.onrender.com/products
+
+### Render Contact by ID
+GET https://project1-pcur.onrender.com/products/6483ce3e3f46080356e0c6d9
