@@ -5,10 +5,10 @@ GET http://localhost:3000/
 GET http://localhost:3000/products
 
 ### Product by ID
-GET http://localhost:3000/products/6ab2ae362fc1f67f0dcac513
+GET http://localhost:3000/products/6ab2ae362fc1f67f0dcac519
 
 ### Update Product
-PUT https://project1-pcur.onrender.com/products/6ab2ae362fc1f67f0dcac519
+PUT http://localhost:3000/products/6ab2ae362fc1f67f0dcac519
 Content-Type: application/json
 
 {
@@ -16,12 +16,12 @@ Content-Type: application/json
   "category": "Medicine",
   "price": 2500,
   "stock": 5,
-  "description": "TESTING A spray-type medicine for treating wounds. Fully restores the max HP of a single Pokémon.",
+  "description": "A spray-type medicine for treating wounds. Fully restores the max HP of a single Pokémon.",
   "inStock": true
 }
 
 ### Delete Product
-DELETE https://project1-pcur.onrender.com/products/6ab2ae362fc1f67f0dcac519
+DELETE http://localhost:3000/products/6ab2ae362fc1f67f0dcac519
 
 
 ### Render Main
