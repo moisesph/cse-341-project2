@@ -5,7 +5,7 @@
     "description": "products Api",
     "version": "1.0.0"
   },
-  "host": "https://project1-pcur.onrender.com",
+  "host": "cse-341-project2-haye.onrender.com",
   "basePath": "/",
   "schemes": [
     "https",
