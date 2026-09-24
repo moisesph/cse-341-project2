@@ -5,13 +5,18 @@
     "description": "products Api",
     "version": "1.0.0"
   },
-  "host": "project1-pcur.onrender.com",
+  "host": "https://project1-pcur.onrender.com",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": [
+    "https",
+    "http"
+  ],
   "paths": {
     "/": {
       "get": {
-        "tags": ["Hello Word"],
+        "tags": [
+          "Hello Word"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -20,20 +25,42 @@
         }
       }
     },
-    "/products": {
+    "/api-docs": {
       "get": {
-        "tags": ["products"],
         "description": "",
-        "produces": ["application/json"],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/products/": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
-        "tags": ["products"],
+        "tags": [
+          "products"
+        ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "body",
@@ -42,36 +69,30 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "type": "string",
-                  "example": "Ultra Ball"
+                  "example": "any"
                 },
                 "category": {
-                  "type": "string",
-                  "example": "Poké Balls"
+                  "example": "any"
                 },
                 "price": {
-                  "type": "number",
-                  "example": 800
+                  "example": "any"
                 },
                 "stock": {
-                  "type": "integer",
-                  "example": 15
+                  "example": "any"
                 },
                 "description": {
-                  "type": "string",
-                  "example": "An ultra-high-performance Poké Ball with a higher catch rate."
+                  "example": "any"
                 },
                 "inStock": {
-                  "type": "boolean",
-                  "example": true
+                  "example": "any"
                 }
               }
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "201": {
+            "description": "Created"
           },
           "500": {
             "description": "Internal Server Error"
@@ -81,9 +102,13 @@
     },
     "/products/{id}": {
       "get": {
-        "tags": ["products"],
+        "tags": [
+          "products"
+        ],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -95,12 +120,23 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
-        "tags": ["products"],
+        "tags": [
+          "products"
+        ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -115,28 +151,22 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "type": "string",
-                  "example": "Ultra Ball"
+                  "example": "any"
                 },
                 "category": {
-                  "type": "string",
-                  "example": "Poké Balls"
+                  "example": "any"
                 },
                 "price": {
-                  "type": "number",
-                  "example": 800
+                  "example": "any"
                 },
                 "stock": {
-                  "type": "integer",
-                  "example": 15
+                  "example": "any"
                 },
                 "description": {
-                  "type": "string",
-                  "example": "An ultra-high-performance Poké Ball with a higher catch rate."
+                  "example": "any"
                 },
                 "inStock": {
-                  "type": "boolean",
-                  "example": true
+                  "example": "any"
                 }
               }
             }
@@ -146,14 +176,22 @@
           "204": {
             "description": "No Content"
           },
+          "404": {
+            "description": "Not Found"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "tags": ["products"],
+        "tags": [
+          "products"
+        ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -165,6 +203,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"

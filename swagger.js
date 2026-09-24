@@ -5,7 +5,7 @@ const doc = {
     title: "products Api",
     description: "products Api",
   },
-  host: "https://project1-pcur.onrender.com",
+  host: "project2-pcur.onrender.com",
   schemes: ["https", "http"],
 };
 
