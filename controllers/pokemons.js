@@ -2,17 +2,17 @@ const mongodb = require("../data/database");
 const ObjectId = require("mongodb").ObjectId;
 
 const getAll = async (req, res) => {
-  //#swagger.tags=['products']
+  //#swagger.tags=['pokemons']
   try {
     const result = await mongodb
       .getDatabase()
       .db()
-      .collection("products")
+      .collection("pokemons")
       .find();
     res.setHeader("Content-Type", "application/json");
 
-    const products = await result.toArray();
-    res.status(200).json(products);
+    const pokemons = await result.toArray();
+    res.status(200).json(pokemons);
   } catch (error) {
     res.setHeader("Content-Type", "application/json");
     res.status(500).json({ message: error.message });
@@ -20,25 +20,25 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-  //#swagger.tags=['products']
+  //#swagger.tags=['pokemons']
   try {
     if (!ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ message: "The ID provided is not valid" });
     }
-    const productId = new ObjectId(req.params.id);
+    const pokemonId = new ObjectId(req.params.id);
     const result = await mongodb
       .getDatabase()
       .db()
-      .collection("products")
-      .find({ _id: productId });
+      .collection("pokemons")
+      .find({ _id: pokemonId });
     res.setHeader("Content-Type", "application/json");
 
-    const products = await result.toArray();
+    const pokemons = await result.toArray();
 
-    if (products.length > 0) {
-      res.status(200).json(products[0]);
+    if (pokemons.length > 0) {
+      res.status(200).json(pokemons[0]);
     } else {
-      res.status(404).json({ message: "Product not found" });
+      res.status(404).json({ message: "pokemon not found" });
     }
   } catch (error) {
     res.setHeader("Content-Type", "application/json");
@@ -46,26 +46,31 @@ const getSingle = async (req, res) => {
   }
 };
 
-const createProduct = async (req, res) => {
-  //#swagger.tags=['products']
+const createPokemon = async (req, res) => {
+  //#swagger.tags=['pokemons']
   try {
-    const product = {
+    const pokemon = {
+      pokedexNumber: req.body.pokedexNumber,
       name: req.body.name,
-      category: req.body.category,
-      price: req.body.price,
-      stock: req.body.stock,
-      description: req.body.description,
-      inStock: req.body.inStock,
+      type: req.body.type,
+      hp: req.body.hp,
+      attack: req.body.attack,
+      defense: req.body.defense,
+      specialAttack: req.body.specialAttack,
+      specialDefense: req.body.specialDefense,
+      speed: req.body.speed,
+      abilities: req.body.abilities,
+      isLegendary: req.body.isLegendary,
     };
     const response = await mongodb
       .getDatabase()
       .db()
-      .collection("products")
-      .insertOne(product);
+      .collection("pokemons")
+      .insertOne(pokemon);
     if (response.acknowledged) {
       res.status(201).json(response.insertedId);
     } else {
-      res.status(500).json({ message: "Product couldn't be created" });
+      res.status(500).json({ message: "pokemon couldn't be created" });
     }
   } catch (error) {
     res.setHeader("Content-Type", "application/json");
@@ -73,31 +78,36 @@ const createProduct = async (req, res) => {
   }
 };
 
-const updateProduct = async (req, res) => {
-  //#swagger.tags=['products']
+const updatePokemon = async (req, res) => {
+  //#swagger.tags=['pokemons']
 
   try {
     if (!ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ message: "The ID provided is not valid" });
     }
-    const productId = new ObjectId(req.params.id);
-    const product = {
+    const pokemonId = new ObjectId(req.params.id);
+    const pokemon = {
+      pokedexNumber: req.body.pokedexNumber,
       name: req.body.name,
-      category: req.body.category,
-      price: req.body.price,
-      stock: req.body.stock,
-      description: req.body.description,
-      inStock: req.body.inStock,
+      type: req.body.type,
+      hp: req.body.hp,
+      attack: req.body.attack,
+      defense: req.body.defense,
+      specialAttack: req.body.specialAttack,
+      specialDefense: req.body.specialDefense,
+      speed: req.body.speed,
+      abilities: req.body.abilities,
+      isLegendary: req.body.isLegendary,
     };
     const response = await mongodb
       .getDatabase()
       .db()
-      .collection("products")
-      .replaceOne({ _id: productId }, product);
+      .collection("pokemons")
+      .replaceOne({ _id: pokemonId }, pokemon);
     if (response.matchedCount > 0) {
       res.status(204).send();
     } else {
-      res.status(404).json({ message: "Product not found" });
+      res.status(404).json({ message: "pokemon not found" });
     }
   } catch (error) {
     res.setHeader("Content-Type", "application/json");
@@ -105,22 +115,22 @@ const updateProduct = async (req, res) => {
   }
 };
 
-const deleteProduct = async (req, res) => {
-  //#swagger.tags=['products']
+const deletePokemon = async (req, res) => {
+  //#swagger.tags=['pokemons']
   try {
     if (!ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ message: "The ID provided is not valid" });
     }
-    const productId = new ObjectId(req.params.id);
+    const pokemonId = new ObjectId(req.params.id);
     const response = await mongodb
       .getDatabase()
       .db()
-      .collection("products")
-      .deleteOne({ _id: productId });
+      .collection("pokemons")
+      .deleteOne({ _id: pokemonId });
     if (response.deletedCount > 0) {
       res.status(204).send();
     } else {
-      res.status(404).json({ message: "Product not found" });
+      res.status(404).json({ message: "pokemon not found" });
     }
   } catch (error) {
     res.setHeader("Content-Type", "application/json");
@@ -131,7 +141,7 @@ const deleteProduct = async (req, res) => {
 module.exports = {
   getAll,
   getSingle,
-  createProduct,
-  updateProduct,
-  deleteProduct,
+  createPokemon,
+  updatePokemon,
+  deletePokemon,
 };

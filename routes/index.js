@@ -10,5 +10,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/products", require("./products"));
+router.use("/pokemons", require("./pokemons"));
 
 module.exports = router;

@@ -2,6 +2,7 @@
 npm start
 https://cse-341-project2-haye.onrender.com
 https://cse-341-project2-haye.onrender.com/products
+https://cse-341-project2-haye.onrender.com/pokemons
 */
 
 const express = require("express");
@@ -20,7 +21,7 @@ mongodb.initDb((err) => {
   } else {
     app.listen(port, () => {
       console.log(
-        `Database is listening and node Running on port ${port} \nhttp://localhost:${port}/\nThe second web is http://localhost:${port}/products\n Api Documentation: http://localhost:${port}/api-docs`,
+        `Database is listening and node Running on port ${port} \nhttp://localhost:${port}/\nThe second web is http://localhost:${port}/products\nThe third web is http://localhost:${port}/pokemons\n Api Documentation: https://cse-341-project2-haye.onrender.com/api-docs/`,
       );
     });
   }
