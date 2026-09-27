@@ -10,7 +10,7 @@ cors
 swagger, express, 
 express-session
 */
-
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongodb = require("./data/database");
@@ -98,6 +98,9 @@ mongodb.initDb((err) => {
     app.listen(port, () => {
       console.log(
         `Database is listening and node Running on port ${port} \nhttp://localhost:${port}/\nThe second web is http://localhost:${port}/products\nThe third web is http://localhost:${port}/pokemons\n Api Documentation: https://cse-341-project2-haye.onrender.com/api-docs/`,
+      );
+      console.log(
+        `use http://localhost:${port}/login to be able to change any data\nuse http://localhost:${port}/logout to logout`,
       );
     });
   }
