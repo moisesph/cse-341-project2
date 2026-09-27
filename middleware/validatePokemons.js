@@ -17,7 +17,7 @@ const RulesValidatePokemons = [
     .withMessage("Do not enter Special Characters"),
 
   body("type").isArray(),
-  body("type*.").isString().trim(),
+  body("type.*").isString().trim(),
 
   body("hp").notEmpty().isInt({ min: 1 }).toInt(),
   body("attack").notEmpty().isInt({ min: 1 }).toInt(),
@@ -27,7 +27,7 @@ const RulesValidatePokemons = [
   body("speed").notEmpty().isInt({ min: 1 }).toInt(),
 
   body("abilities").isArray({ min: 1 }),
-  body("abilities*.").isString().trim().notEmpty(),
+  body("abilities.*").isString().trim().notEmpty(),
 
   body("isLegendary").notEmpty().isBoolean().toBoolean(),
 ];
